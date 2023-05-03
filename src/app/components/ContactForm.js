@@ -32,15 +32,16 @@ const ContactForm = () => {
 
         try {
             const response = await fetch('/api/contact', {
-                method:'POST',
-                headers:{"Content_Type":"application/json"},
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    username:user.username,
-                    email:user.email,
-                    phone:user.phone,
-                    message:user.message
+                    username: user.username,
+                    email: user.email,
+                    phone: user.phone,
+                    message: user.message
                 })
-            })
+            });
+
             // Set the status based on the response from the API route
             if (response.status === 200) {
                 setUser({
