@@ -12,7 +12,7 @@ const Movie = async () => {
     const options = {
         method: 'GET',
         headers: {
-            // 'content-type': 'application/octet-stream',
+
             'X-RapidAPI-Key': 'b66bedf9c4mshec214d375af859fp144cdajsn9428984c0aa1',
             'X-RapidAPI-Host': 'netflix54.p.rapidapi.com'
         }
@@ -20,7 +20,7 @@ const Movie = async () => {
 
     const res = await fetch(url, options);
     const data = await res.json();
-    const main_data = data.titles;
+    const main_data = data.title;
 
     return (
         <>
@@ -28,7 +28,7 @@ const Movie = async () => {
                 <div className={styles.container}>
                     <h1>Series and Movie</h1>
                     <div className={styles.card_section}>
-                        {
+                        {main_data &&
                             main_data.map((curElem) => {
                                 return <MovieCard key={curElem.id} {...curElem} />
                             })
